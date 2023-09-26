@@ -1,0 +1,7 @@
+2y Great job! The program outputs the name of the representative and their title. I appreciate the comment which shows which areas they cover.
+zm Great job, program outputs the name of the representative.
+sp Nice job! The output is a statement outlining who the representatives are of SF County.
+f2 Program outputs name of the assembly member. I suggest if outputting a human-reading sentence with the intent of being read by someone else, to use full punctuation instead of all lower-case. I also suggest to delete extra space characters at the end of the program, as it looks like there are 2 empty new-line spaces. 
+ai Nice comment! I suggest to add the comment inside of a print('') statement instead of a comment in order to be consistent with the assignment. When you execute the program, nothing occurs and makes it appear like there is no further information.
+r8 The statement implies the writer does not know their CA state rep. It is unclear wether or not the student is in CA, but if they are not, I would have appreciated either knowing who their state rep is anyway or any further clarifying information.
+tu N/A This program was intended for previous week (Week 2). The code looks good, however!
