@@ -1,0 +1,84 @@
+Question 1:
+
+DROP TABLE IF EXISTS restaurant_shifts;
+DROP TABLE IF EXISTS restaurant_employees;
+
+-- Create a table named restaurant_employees with columns for id, name, and position
+CREATE TABLE restaurant_employees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    position VARCHAR(50)
+);
+
+If you ran the following SELECT statement to view the newly created tables in your database, what do you predict would appear in the query result?
+
+-- SELECT #1
+SELECT * FROM restaurant_employees;
+
+
+I would predict that the query would not result in an error and that no results would be returned. We just created the table but have not placed any data inside yet.
+
+Run the following INSERT statement:
+-- INSERT #1
+INSERT INTO restaurant_employees (employee_id, name, position) VALUES (1, 'Maria Garcia', 'Manager');
+Run the SELECT #1 statement to view the impact of INSERT #1 on the tables. How would you describe the result of INSERT #1 using everyday (not programming) language?
+The results show how many employees are listed in the database. In this case, it's just the manager Maria Garcia. 
+
+Run the following INSERT statement:
+
+-- INSERT #2
+INSERT INTO restaurant_employees VALUES (2, 'Ahmed Ali', 'Chef');
+How does the use of the INSERT statement in INSERT #2 differ from INSERT #1?
+Insert#1 explicitly declares which columns to insert the data into, whereas Insert#2 does not. These perform the same functionality in this case, but each could be situationally appropriate depending on how familiar you are with the data or how readable you want your code to be. 
+
+
+Run the SELECT #1 statement to view the impact of INSERT #2 on the tables.  How does the results of INSERT #2 differ from the result of INSERT #1?
+The end result is the same, the data ends up in the same format as the first insert statement. 
+
+Run the INSERT #1 statement again:
+
+-- INSERT #1
+INSERT INTO restaurant_employees (employee_id, name, position) VALUES (1, 'Maria Garcia', 'Manager');
+This should produce an error message.
+
+What is the error message?
+Error reads '#1062 - Duplicate entry '1' for key 'restaurant_employees.PRIMARY''
+
+What do you think it means?
+There already exists employee_id of 1 in this table. Because it is a primary key in this table, these values must be unique. There can be duplicates of other ids, such as name or job title, but employee_id must be unique in this table.
+
+Run the following INSERT statement:
+
+-- INSERT #3
+INSERT INTO restaurant_employees VALUES (3, 'Liu Wei');
+This should produce an error.
+
+How does the use of the statement INSERT #3 differ from the use of INSERT #2 (which ran successfully)?
+This statement is missing the last column, which is position.
+
+What is the error message and what do you think it means?
+Error reads '#1136 - Column count doesn't match value count at row 1'. The table is expedcting 3 values to insert into its 3 columns, but only 2 were provided.
+
+Run the following INSERT statement:
+
+-- INSERT #4
+INSERT INTO restaurant_employees (employee_id, name) VALUES (3, 'Liu Wei');
+How does the text of INSERT #4 statement differ from the text of INSERT #3?
+Insert#4 explicitly declares which columns the values belong to, whereas insert#3 does not. 
+
+How does the text of INSERT #4 statement differ from the text of INSERT #1?
+Insert#4 is the same synthax as Insert#1, however not all columns are present in this query. This is OK, because the primary key is present so not all values are mandatory.
+
+Run the SELECT #1 statement to view the impact of INSERT #4 on the tables.  How does the results of INSERT #4 differ from previous inserts and why?
+All values in the table are returned. However, the position value for employee_id = 3 is NULL because it was not defined during the insert.
+
+How do you think the INSERT statement works? What rules would you define for its use?
+The insert statement works to create new rows of data into table. At minimum, the primary key must be present in order to insert data into the table. Additionally, duplicate values for the primary key are not allowed. 
+
+Question 2:
+Murach's MySQL 3rd ed. Chapter 4: Exercise 7
+Use the UNION operator to generate a result set consisting of two columns from the Vendors table:
+
+vendor_name
+vendor_state.
+If the vendor is in California, the vendor_state value should be “CA”; otherwise, the vendor_state value should be “Outside CA.” Sort the final result set by vendor_name.
