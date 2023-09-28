@@ -1,0 +1,79 @@
+Question 1:
+Topic Start - Copy the text below into your discussion post.
+
+DROP TABLE IF EXISTS restaurant_shifts;
+DROP TABLE IF EXISTS restaurant_employees;
+
+-- Create a table named restaurant_employees with columns for id, name, and position
+CREATE TABLE restaurant_employees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    position VARCHAR(50)
+);
+If you ran the following SELECT statement to view the newly created tables in your database, what do you predict would appear in the query result?
+
+-- SELECT #1
+SELECT * FROM restaurant_employees;
+Run the following INSERT statement:
+
+-- INSERT #1
+INSERT INTO restaurant_employees (employee_id, name, position) VALUES (1, 'Maria Garcia', 'Manager');
+Run the SELECT #1 statement to view the impact of INSERT #1 on the tables. How would you describe the result of INSERT #1 using everyday (not programming) language?
+
+Run the following INSERT statement:
+
+-- INSERT #2
+INSERT INTO restaurant_employees VALUES (2, 'Ahmed Ali', 'Chef');
+How does the use of the INSERT statement in INSERT #2 differ from INSERT #1?
+
+Run the SELECT #1 statement to view the impact of INSERT #2 on the tables.  How does the results of INSERT #2 differ from the result of INSERT #1?
+
+Run the INSERT #1 statement again:
+
+-- INSERT #1
+INSERT INTO restaurant_employees (employee_id, name, position) VALUES (1, 'Maria Garcia', 'Manager');
+This should produce an error message.
+
+What is the error message?
+
+What do you think it means?
+
+Run the following INSERT statement:
+
+-- INSERT #3
+INSERT INTO restaurant_employees VALUES (3, 'Liu Wei');
+This should produce an error.
+
+How does the use of the statement INSERT #3 differ from the use of INSERT #2 (which ran successfully)?
+
+What is the error message and what do you think it means?
+
+Run the following INSERT statement:
+
+-- INSERT #4
+INSERT INTO restaurant_employees (employee_id, name) VALUES (3, 'Liu Wei');
+How does the text of INSERT #4 statement differ from the text of INSERT #3?
+
+How does the text of INSERT #4 statement differ from the text of INSERT #1?
+Run the SELECT #1 statement to view the impact of INSERT #4 on the tables.  How does the results of INSERT #4 differ from previous inserts and why?
+
+How do you think the INSERT statement works? What rules would you define for its use?
+
+Question 2:
+Murach's MySQL 3rd ed. Chapter 4: Exercise 7
+Use the UNION operator to generate a result set consisting of two columns from the Vendors table:
+
+vendor_name
+vendor_state.
+If the vendor is in California, the vendor_state value should be “CA”; otherwise, the vendor_state value should be “Outside CA.” Sort the final result set by vendor_name.
+
+Topic End - Copy the text above into your discussion post.
+
+For your post in the Discussion this module, be sure to have:
+
+Copied the text above into your discussion post
+Performed the requested SQL queries
+Posted your solution to the programming problem in the discussion post.
+The following question has been developed to provide some feedback to a new programmer. If answered correctly, you should see a correctly formatted SQL statement that answers the programming problem.
+
+What is the vendor_state for the 2nd record in the query result set?
