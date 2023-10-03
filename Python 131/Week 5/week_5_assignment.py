@@ -25,6 +25,6 @@ sf_population_formatted = "{:,}".format(sf_population)
 sf_pop_to_rep_ratio_formatted = "{:,}".format(sf_pop_to_rep_ratio)
 
 # Summarize findings
-print(f"With a city population of approximately {la_population_formatted} and {la_reps} county representatives, each Los Angeles County Board of Supervisors member represents approximately {la_pop_to_rep_ratio_formatted} constituents.")
+print(f"With a city population of approximately {la_population} and {la_reps} county representatives, each Los Angeles County Board of Supervisors member represents approximately {la_pop_to_rep_ratio_formatted} constituents.")
 print(f"With a city population of approximately {sf_population_formatted} and {sf_reps} county representatives, each San Francisco County Board of Supervisors member represents approximately {sf_pop_to_rep_ratio_formatted} constituents.")
 print(f"This means that each member of the Los Angeles County Board of Supervisors represents approximately {la_to_sf_ratio} times more constituents as their San Francisco counterpart.")
