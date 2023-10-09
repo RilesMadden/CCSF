@@ -1,14 +1,10 @@
+e8 Program executes successfully without error. I appreciated the additional error handling in the event only 1 or no arguments are passed.
+ee Program executes successfully and provides inputted and outputted lists. Code is easy to follow, no notes!
+3v Program executes successfully without error. Code is easy to read and well laid out. Nice job!
+d8 Program executes successfully without error. My only note would be to exclude the 0th element (the name of the script) as it isn't an additional argument entered. Other than that, great job!
+t7 Program executes successfully without error and expected reversed values are returned. 
+mu Program executes successfully without errors. Each argument is subsequently entered on a separate line, in the case of many arguments entered it may be nice to consolidate these to one line. Other than that, good job!
+ih The script executes without error, but only outputs the script name. arg[0] is the name of the script iself, but a way to define additional passed arguments is needed. You can accomplish this by creating a list like: list_of_args = sys.argv[1:] where 1: will capture additionally entered arguments. 
 
 
 
-
-
-
-
-ih
-ee
-e8
-mu
-3v
-d8
-t7
