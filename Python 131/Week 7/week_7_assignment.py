@@ -7,7 +7,7 @@ list_of_args = sys.argv[1:] # Save incoming arguments as a list but it might hav
 if len(list_of_args) == 0: # Check if no arguments were passed and print special exception if so.
         print("No arguments passed.")
 else:
-        set_of_args = set([str(arg) for arg in list_of_args]) # Turning the list into a set to get rid of any duplicates and changing each argument to a string to$
+        set_of_args = set([str(arg) for arg in list_of_args]) # Turning the list into a set to get rid of any duplicates and changing each argument to a string to ensure no issues during sorting.
 
         arg_string = '' # Create a nice, readable output.
         for arg in sorted(set_of_args):
