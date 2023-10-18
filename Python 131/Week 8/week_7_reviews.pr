@@ -1,0 +1,9 @@
+m3 Code executes expected result and is easy to follow. I was unaware of the print(key, end=" ") way to do that, thanks!
+5x Nice approach and good job! I forgot about the .join() method, I accomplished this through a loop to create the output string. I appreciated the structure of the comments, as well. 
+8c Code executes successfully and returns expected result. I appreciated the logical approach, and loved the use of the .join() method.
+vq Code is simple and returns the expected result without errors. Nice job! I appreciated the simple comments, as well.
+za Code executes successfully and provides expected result. I don't think you need the end check to check for if the arguments were unique, because they would already be removed by the set. All of my arguments entered were unique, c b a 3 2 1. I think this check just determines if any arguments were passed, as opposed to any unique arguments. 
+7y Code executes expected result, however you could add [1:] to sys.argv in new_list = list(set(sys.argv[1:])) to exclude the file name. Otherwise, nice job and I appreciate the comments!
+kc Program does not result in expected result. My arguments a b c returned result a c b. I think you can resolve this by assigning your sys.argv[1:] to a different variable other than sys.argv itself. 
+
+
