@@ -1,0 +1,7 @@
+64 Nice job, the code is concise and easy to follow. I thought the use of the is vs is not was a creative way to approach how to display the result.
+yd Nice job! The code is easy to follow and runs without issue.
+9s Nice job, the code runs without issue and produces an accurate result. My only suggestion would be to consider using underscores to separate words like sumofdice into sum_of_dice, as it removes any chance that someone would misunderstand you.
+iu Nice job, I appreciated the approach using randrange instead of randint!
+4y Nice job! My only note is that randint(x,y) is inclusive of y, unlike range(x,y), so you are including an extra integer in the calculation.
+94 Nice job! I think you forgot to omit the comment about while loops, but otherwise nice job.
+4j Code is well constructed, however the assignment was to use the sum and not the product of the dice. Otherwise, nice job!
