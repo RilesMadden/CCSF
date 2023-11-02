@@ -1,0 +1,15 @@
+kv Great job! I appreciate the multiple approaches and explanations. I always like solving for the general case in the event the script needs to be modified later.
+wf Nice job! Code is concise and executes without error. If I had to make a suggestion, consider renaming your variable tsotr to something more obvious, like sum_of_dice_roll for example, to make it more obvious what this variable is. It's totally fine for this application, but could be confusing if the script had many variables all named in this convention.
+uh Good effort! I appreciate making the Die class which would be useful if many dice were in play. You may be able to combine the last 2 steps into one to avoid iterating multiple times, but up to you. The comments were a concise but provided enough context.
+ra Nice job! Code runs without error and answers prompt. I don't think you need to do the extra list comprehension within your for loop, as you are already making a new number from your functions each time it loops around.
+jr Nice job. Code runs without error and produces accurate result. I can discern what the map function does, but it may be more efficient to do this in one loop as opposed to looping around a few times.
+gh Good effort! The code runs wtihout error, however the result isn't fully accurate. If you include the result variable and the if condition inside of the for loop, your code will work as expected. Otherwise, you are only checking if the most recent result is a multiple of three because you are resetting the dice roll before you evaluate if it's a multiple of three.
+kh Good effort! The code runs without error but is not answering the right question of the assignment. Your lists are being interpreted as all of the numbers between 0 and 100 that are divisible by 3, and are not considering your random integers. As a general troubleshooting step, I'd recommend to run your script many times, and if it is the same result every time despite you entering random values, likely something isn't working correctly.
+
+
+
+
+
+
+
+
