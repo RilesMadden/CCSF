@@ -8,7 +8,7 @@ sum_of_args = 0
 for arg in args_passed:
     try:
         sum_of_args += int(arg)
-    except ValueError:
+    except:
         pass
 
 print(f"The sum of all integers passed is: {sum_of_args}")
