@@ -1,26 +1,34 @@
-# Write a program that estimates the number of distinct words in the text whose pathname is passed as argument
+"""
+Assignment: Write a program that estimates the number of distinct words in the text whose pathname is passed as argument
+"""
+import sys
 
-text_location = "C:/Users/Riley/Desktop/VSCode/CCSF/CCSF/Python 131/Week 11/Text_txt.txt"
+input_text = sys.argv[1] # capture pathname as argument
 
 punctuation_list = [",", ".", "!", "?", ";", ":", "(", ")", "[", "]", "{", "}", "<", ">", "/", "|", "@", "#" , "$", "%", "^", "&", "*", "_", "-", "+", "=", "~",]
 
-# function will remove any punctuation marks from any word passed into it
+# function to remove any punctuation marks from any word
 
 def remove_punctuation(word):
-    letter_list = [letter for letter in word if letter not in punctuation_list]
-    return ''.join(letter_list)
+    return ''.join([letter for letter in word if letter not in punctuation_list]) # recreate word without punctuation marks
 
-with open(file=text_location, mode="r") as text_source:
-    text_file = text_source.read()
+# open input file and perform word count
 
-    text_words = text_file.lower().split() # list of all words in the text and make lower case
+try:
+        with open(file=input_text, mode="r") as text_source:
 
-    set_of_unique_words = set()
+                text_file = text_source.read() # create a text file variable from text
 
-    for word in text_words:
-        set_of_unique_words.add(remove_punctuation(word))
+                unique_words_with_punctuation = set(text_file.lower().split()) # set of all words in text and lowercases them
+
+                # there may be duplicates in this set though due to punctuation such as "word" vs "word."
+                # let's create an additional set to run through this set and remove punctuation marks so these are both counted as 1 word.
+
+                unique_words_without_punctuation = {remove_punctuation(word) for word in unique_words_with_punctuation}
+
+                print(f"There are an estimated {len(unique_words_without_punctuation)} unique words in the text.")
+except:
+        print("File not found, please try again.")
 
 
-    print(set_of_unique_words)
-    print(len(set_of_unique_words))
 
