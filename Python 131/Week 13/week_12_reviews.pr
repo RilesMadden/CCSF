@@ -1,0 +1,14 @@
+uj Nice job! Program outputs as expected. I appreciate the structure as well as the error handling.
+hg Nice job, program outputs as expected. I appreciated the attention to detail with including the commas in the ouput text.
+zu Good job, the program runs without error and the output is expected. I would recommend considering making the output text more human-readable, instead of printing out the list itself. You can also use the string module with object string.punctuation which combines all punctuation marks in one easy to use constant.
+zc Nice job, the program outputs as expected. I would recommend considering a function to remove punctuation from each word prior to checking the length, as your check is including these in its length calculation.
+dh Nice job, the program succeeds without error. I would recommend considering making your output text more human-readable instead of printing the output list. 
+qp Nice job, program runs without error. I would recommend considering removing punctuation from each word prior to checking the length, as your check is including these in its length calculation.
+eu Nice job, the program runs without error and output is expected. I would caution using a while loop here, in the event that the text doesn't have 10 words over 10 characters, it would theoretically run forever without finishing. Additionally, the random choice is resetting every loop, so it's possible that you can get duplicate words as I did in my test. You can accomplish this by restructing your loop to ensure it remembers the random choice so that it's not duplicated, or put in a check after picking the word to determine if it's already in the list.
+
+
+
+
+
+
+
