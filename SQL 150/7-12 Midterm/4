@@ -1,0 +1,28 @@
+Code example 7-2
+
+SELECT i.vendor_id, MAX(i.invoice_total) AS largest_invoice
+
+each vendor with their largest invoice
+from 
+each vendor, their average invoice
+where
+the grouped average invoice total is greater than 100
+
+
+FROM invoices i
+    JOIN
+      (SELECT vendor_id, AVG(invoice_total) AS average_invoice
+      FROM invoices
+      GROUP BY vendor_id
+      HAVING AVG(invoice_total) > 100) ia
+    ON i.vendor_id = ia.vendor_id
+GROUP BY i.vendor_id
+ORDER BY largest_invoice DESC
+
+
+(Refer to code example 7-2.) When this query is executed, each row in the result table will show
+
+--> the largest invoice total related to that row
+the average invoice total related to that row
+the largest invoice total related to that row, but only if it’s larger than the average for all invoices
+the average invoice total related to that row, but only if it’s greater than 100

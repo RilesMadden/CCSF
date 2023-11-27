@@ -1,0 +1,21 @@
+Code example 7-1
+
+SELECT vendor_name, COUNT(*) AS number_of_invoices, MAX(invoice_total - payment_total - credit_total) AS balance_due
+
+each vendor with the number of invoices and the maximum balance due
+where the balance due is greater than the average of all invoices
+
+FROM vendors v
+  JOIN invoices i
+  ON v.vendor_id = i.vendor_id 
+WHERE invoice_total - payment_total - credit_total >
+    (SELECT AVG(invoice_total - payment_total - credit_total)
+    FROM invoices)
+GROUP BY vendor_name
+ORDER BY balance_due DESC
+
+When this query is executed, the result set will contain
+one row for each invoice that has a larger balance due than the average balance due for all invoices
+one row for the invoice with the largest balance due for each vendor
+one row for each invoice for each vendor that has a larger balance due than the average balance due for all invoices
+--> one row for each vendor that shows the largest balance due for any of the vendors invoices, but only if the balance due is larger than the average balance due for all invoices
