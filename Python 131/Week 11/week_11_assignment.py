@@ -3,7 +3,7 @@ Assignment: Write a program that estimates the number of distinct words in the t
 """
 import sys
 
-input_text = sys.argv[1] # capture pathname as argument
+input_text = 'Python 131\\Week 11\\Text_txt.txt'
 
 punctuation_list = [",", ".", "!", "?", ";", ":", "(", ")", "[", "]", "{", "}", "<", ">", "/", "|", "@", "#" , "$", "%", "^", "&", "*", "_", "-", "+", "=", "~",]
 
