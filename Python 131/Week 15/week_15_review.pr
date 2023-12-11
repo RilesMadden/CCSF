@@ -1,0 +1,7 @@
+rv Great job, the code outputted successfully and in an easy to read way. 
+82 Nice job, the code functioned without error and was easy to follow. I was a bit uncertain what your second function does, but I guess it could work if you then later reprinted the document or did additional functions with it. 
+xk Great job, the code functions without error. I would double check the code for the largest integer function, however, as I didn't receive my expected result (got 32 instead of 20000000). I ran into errors myself where for some reason not all digits were counted as ints but instead strings, so they weren't considered by the MAX function. I fixed this by converting each digit to data type int, which solved the issue for me. Otherwise, great job!
+4a Well done, the code was well laid out and easy to understand. If I had to make any suggestions, I would have liked to have been able to submit my own file to test the functions on instead of the hardcoded book sample.
+kk Nice job, the code ran without error and the code easy to understand. The test file I inputted was large, so it wasn't easy to sort through to figure out what the functions were doing.
+ju Nice job, the code runs successfully without error. I would suggest making the output a bit more reader friendly, as I was uncertain what some of the functions did based on the output alone.
+zj Nice effort, however there aren't any lines in the code to execute the code or accept a test file. Looking at the code itself, it looks well written and nice choices for the functions within.
