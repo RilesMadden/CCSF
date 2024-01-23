@@ -22,6 +22,7 @@ int main()
 
     }
     cout << "Thanks for playing!";
+    cout << "\n\n";
     return 0;
 }
 /*
