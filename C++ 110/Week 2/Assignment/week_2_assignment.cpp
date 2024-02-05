@@ -95,7 +95,7 @@ int main(){
         };
 
         // End game and reset if player wants to play again
-        cout << "Would you like to play again (y/n)?:" << endl;
+        cout << "Would you like to play again (y/n)?: ";
         cin >> play_again;
 
         if (play_again == 'y') {
