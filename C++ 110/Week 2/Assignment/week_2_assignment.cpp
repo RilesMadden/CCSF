@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-    // establish random function
+    // establish random function for drawing cards
     unsigned seed = time(0);
     srand(seed);
 
@@ -53,7 +53,7 @@ int main(){
         };
 
         // Dealer's turn, will only proceed if player did not bust
-        if (bust == false){
+        if (bust == false) {
             cout << "Ok, you have a total of " << player_card_sum << ", let's see if you can beat the dealer." << endl;
             random_card = (rand() % (MAX_CARD_VALUE - MIN_CARD_VALUE + 1)) + MIN_CARD_VALUE;
             dealer_card_sum += random_card;
