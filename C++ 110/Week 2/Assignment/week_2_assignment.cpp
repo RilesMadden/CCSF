@@ -18,6 +18,7 @@ int main(){
     bool bust = false;
     char play_again = 'y';
     char hit_me = 'y';
+    char press_to_continue = 'c';
 
     // Begin game loop
     while (play_again == 'y') {
@@ -66,6 +67,8 @@ int main(){
 
             while (dealer_card_sum < 17) { // Dealer hit loop, will stop once score exceeds 16
                 cout << "The dealer's total is less than 17, so they will hit." << endl;
+                cout << "(Press c to continue) ";
+                cin >> press_to_continue;
                 random_card = (rand() % (MAX_CARD_VALUE - MIN_CARD_VALUE + 1)) + MIN_CARD_VALUE;
                 dealer_card_sum += random_card;
                 cout << "The dealer's hit card is: " << random_card << endl;
