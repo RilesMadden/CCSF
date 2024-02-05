@@ -1,13 +1,6 @@
-/* Question#2:
-Write a C++ program which tracks assignment grades.  It should do the following:
-- Ask the user how many assignments there are.
-- Input a grade for each assignment from the user.
-- Print out the total points scored, and the average (mean) score.
-
-If you have time, add these extra features:
-- print out the letter grade for the average score using the standard grading formula (90 or higher is an A, 80 or higher is a B, etc.)
-- Make sure each grade is at least 0 and at most 100
-*/
+// Discussion 2, Question 2
+// Write a C++ program which tracks assignment grades.
+// Riley Madden, CS110B
 
 #include <iostream>
 #include <iomanip>
@@ -42,11 +35,11 @@ int main() {
     average_grade = (sum_of_grades / number_of_assignments); 
     if (average_grade >= 90)
         letter_grade = 'A';
-    else if (average_grade >= 80 && average_grade < 90)
+    else if (average_grade >= 80)
         letter_grade = 'B';
-    else if (average_grade >= 70 && average_grade < 80)
+    else if (average_grade >= 70)
         letter_grade = 'C';
-    else if (average_grade >= 60 && average_grade < 70)
+    else if (average_grade >= 60)
         letter_grade = 'D';
     else
         letter_grade = 'F';
