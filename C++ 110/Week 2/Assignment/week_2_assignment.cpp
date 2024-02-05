@@ -1,5 +1,5 @@
 // Assignment 2 - Blackjack
-// Blackjack and dealer
+// A simple Blackjack game with player and dealer. Ace and Face cards are not considered. 
 // Riley Madden, CS110B
 
 #include <iostream>
@@ -19,6 +19,7 @@ int main(){
     char play_again = 'y';
     char hit_me = 'y';
 
+    // Begin game loop
     while (play_again == 'y') {
 
         // Player's turn:
@@ -32,7 +33,7 @@ int main(){
         cout << "Your second card is: " << random_card << endl;
         cout << "Your current total is: " << player_card_sum << endl;
 
-        while (bust == false && hit_me == 'y'){
+        while (bust == false && hit_me == 'y'){ // Player hit loop
             cout << "Would you like to hit (y/n)?: ";
             cin >> hit_me;
             if (hit_me == 'y') {
@@ -51,7 +52,7 @@ int main(){
             };
         };
 
-        // Dealer's turn
+        // Dealer's turn, will only proceed if player did not bust
         if (bust == false){
             cout << "Ok, you have a total of " << player_card_sum << ", let's see if you can beat the dealer." << endl;
             random_card = (rand() % (MAX_CARD_VALUE - MIN_CARD_VALUE + 1)) + MIN_CARD_VALUE;
@@ -63,7 +64,7 @@ int main(){
             cout << "The dealer's second card is: " << random_card << endl;
             cout << "Their current total is: " << dealer_card_sum << endl;
 
-            while (dealer_card_sum < 17) {
+            while (dealer_card_sum < 17) { // Dealer hit loop, will stop once score exceeds 16
                 cout << "The dealer's total is less than 17, so they will hit." << endl;
                 random_card = (rand() % (MAX_CARD_VALUE - MIN_CARD_VALUE + 1)) + MIN_CARD_VALUE;
                 dealer_card_sum += random_card;
@@ -72,19 +73,28 @@ int main(){
             };
 
             // Determine winner
-            // if (player_card_sum > dealer_card_sum) {
-            //     cout << "Congratulations! You've won!" << endl;
-            //     cout << "Your score of " << player_card_sum << " beat the dealer's score of " << dealer_card_sum << "." << endl;
-            // };
-            // else if (dealer_card_sum > player_card_sum) {
-            //     cout << "The dealer won this time!" << endl;
-            //     cout << "Their score of " << dealer_card_sum << " beat your score of " << player_card_sum << "." << endl;
-            //     cout << "Better luck next time!" << endl;
-            // };
-        }
+            if (dealer_card_sum > 21) {
+                cout << "The dealer busts! You've won!" << endl;
+            }
+            else if (player_card_sum > dealer_card_sum) {
+                cout << "Congratulations! You've won!" << endl;
+                cout << "Your score of " << player_card_sum << " beat the dealer's score of " << dealer_card_sum << "." << endl;
+            }
+            else if (dealer_card_sum > player_card_sum) {
+                cout << "The dealer won this time!" << endl;
+                cout << "Their score of " << dealer_card_sum << " beat your score of " << player_card_sum << "." << endl;
+                cout << "Better luck next time!" << endl;
+            }
+            else {
+                cout << "It's a push! Both players have a score of " << player_card_sum << "." << endl;
+            };
+        
+        };
 
+        // End game and reset if player wants to play again
         cout << "Would you like to play again (y/n)?:" << endl;
         cin >> play_again;
+
         if (play_again == 'y') {
         bust = false;
         hit_me = 'y';
@@ -92,5 +102,6 @@ int main(){
         dealer_card_sum = 0;
         };
     };
-   return 0;
+    cout << "Thanks for playing!" << endl;
+    return 0;
 }
