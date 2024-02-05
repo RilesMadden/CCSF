@@ -108,3 +108,35 @@ int main(){
     cout << "Thanks for playing!" << endl;
     return 0;
 }
+
+/* Sample output:
+Welcome to the Blackjack Barn! Let's get your hand started.
+Your first card is: 8
+Your second card is: 8
+Your current total is: 16
+Would you like to hit (y/n)?: n
+Ok, you have a total of 16, let's see if you can beat the dealer.
+The dealer's first card is: 6
+The dealer's second card is: 4
+Their current total is: 10
+The dealer's total is less than 17, so they will hit.
+(Press c to continue) c
+The dealer's hit card is: 4
+Their current total is: 14
+The dealer's total is less than 17, so they will hit.
+(Press c to continue) c
+The dealer's hit card is: 8
+Their current total is: 22
+The dealer busts! You've won!
+Would you like to play again (y/n)?: y
+Welcome to the Blackjack Barn! Let's get your hand started.
+Your first card is: 9
+Your second card is: 5
+Your current total is: 14
+Would you like to hit (y/n)?: y
+Ok, hit! Your next card is: 9
+Your new total is: 23
+Oh no! It's a bust!
+Would you like to play again (y/n)?: n
+Thanks for playing!
+*/
