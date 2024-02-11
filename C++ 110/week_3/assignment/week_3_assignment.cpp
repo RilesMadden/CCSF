@@ -24,7 +24,7 @@ int main() {
     return 0;
 }
 
-void playOneGame() { // complete guessing game on the range of 1 to 100.
+void playOneGame() { // Primary game loop
     char userResponse, cont, randomMode;
     int low = 1, high = 100;
     
@@ -37,7 +37,7 @@ void playOneGame() { // complete guessing game on the range of 1 to 100.
     } while (cont != 'c');
 
     do {
-        cout << "Would you like to enter random mode (y/n)?: ";
+        cout << "Would you like to enter random mode (y/n)?: "; // Determines if standard midpoint or random midpoint is used
         cin >> randomMode;
     } while (randomMode != 'y' && randomMode != 'n');
     cout << "Here we go!" << endl;
@@ -45,7 +45,7 @@ void playOneGame() { // complete guessing game on the range of 1 to 100.
     do {
         if (randomMode == 'y') {
             int midpoint;
-            midpoint = getRandomMidpoint(low, high); // Random getRandomMidpoint function
+            midpoint = getRandomMidpoint(low, high); // Picks random number between endpoints
             userResponse = getUserResponseToGuess(midpoint);
             if (userResponse == 'h') {
                 low = midpoint;
@@ -56,7 +56,7 @@ void playOneGame() { // complete guessing game on the range of 1 to 100.
         }
         else {
             int midpoint;
-            midpoint = getMidpoint(low, high); // Standard getMidpoint function
+            midpoint = getMidpoint(low, high); // Gets midpoint of endpoints
             userResponse = getUserResponseToGuess(midpoint);
             if (userResponse == 'h') {
                 low = midpoint;
@@ -67,36 +67,20 @@ void playOneGame() { // complete guessing game on the range of 1 to 100.
         }
     } while (userResponse != 'c');
     cout << "Aha! I knew it!" << endl;
-
-    // Want to get it working this way, but it's not working
-    // do {
-    //     if (randomMode == 'y') {
-    //         midpoint = getRandomMidpoint(low, high); // Random getRandomMidpoint function
-    //     }
-    //     else {
-    //         midpoint = getMidpoint(low, high); // Standard getMidpoint function
-    //     };
-
-    //     userResponse = getUserResponseToGuess(midpoint);
-    //     if (userResponse == 'h') {
-    //         low = midpoint;
-    //     }
-    //     else if (userResponse == 'l') {
-    //         high = midpoint;
-    //     }
-    // } while (userResponse != 'c');
-    // cout << "Aha! I knew it!" << endl;
 }
 
 char getUserResponseToGuess(int guess) {
     char userResponse;
     cout << "Is your number " << guess << "? (h/l/c): ";
     cin >> userResponse;
+
+    // input validation
     while (userResponse != 'h' && userResponse!= 'l' && userResponse!= 'c') {
         cout << "Please enter a valid entry. Enter 'h' for higher, 'l' for lower, or 'c' for correct." << endl;
         cout << "Is your number " << guess << "? (h/l/c): ";
         cin >> userResponse;
     }
+
     return userResponse;
 }
 
@@ -106,6 +90,7 @@ int getMidpoint(int low, int high) {
 }
 
 int getRandomMidpoint(int low, int high) {
+    // Modifying low and high parameters to exclude them from guesses (avoiding repeat guesses)
     low += 1;
     high -= 1;
     int randomMidpoint = (rand() % (high - low + 1)) + low;
@@ -125,30 +110,38 @@ bool shouldPlayAgain() { // determines if user wants to play again
 }
 
 /*
-Sample output with standard getMidpoint():
-
+Sample output. First passthrough is with standard mode, second is with random mode.
+----
 Welcome to my number guessing game!
-Please think of a number between 1 and 100.
+Please think of a number between 1 and 100 (exclusive).
 I'll attempt to guess it, and you'll tell me if I'm correct, or if your number is lower or higher than my guess.
 Ready? Please enter 'c' to continue: c
+Would you like to enter random mode (y/n)?: n
 Here we go!
-Is your number 50? (h/l/c): l
-Is your number 25? (h/l/c): h
-Is your number 37? (h/l/c): c
+Is your number 50? (h/l/c): h
+Is your number 75? (h/l/c): l
+Is your number 62? (h/l/c): h
+Is your number 68? (h/l/c): l
+Is your number 65? (h/l/c): c
 Aha! I knew it!
 Would you like to play again (y/n)?: y
 Welcome to my number guessing game!
-Please think of a number between 1 and 100.
+Please think of a number between 1 and 100 (exclusive).
 I'll attempt to guess it, and you'll tell me if I'm correct, or if your number is lower or higher than my guess.
 Ready? Please enter 'c' to continue: c
+Would you like to enter random mode (y/n)?: y
 Here we go!
-Is your number 50? (h/l/c): h
-Is your number 75? (h/l/c): c
+Is your number 93? (h/l/c): l
+Is your number 75? (h/l/c): l
+Is your number 40? (h/l/c): l
+Is your number 3? (h/l/c): h
+Is your number 8? (h/l/c): h
+Is your number 25? (h/l/c): h
+Is your number 30? (h/l/c): l
+Is your number 28? (h/l/c): l
+Is your number 27? (h/l/c): c
 Aha! I knew it!
 Would you like to play again (y/n)?: n
 Thanks for playing!
-
-
-
 
 */
