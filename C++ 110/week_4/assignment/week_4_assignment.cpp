@@ -4,7 +4,6 @@
 // Riley Madden, 110b
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 void drawHand(int draw[]);
@@ -16,6 +15,7 @@ bool containsThreeOfaKind(int hand[]);
 bool containsStraight(int hand[]);
 bool containsFullHouse(int hand[]);
 bool containsFourOfaKind(int hand[]);
+bool containsFiveOfaKind(int hand[]);
 
 int main() {
     char playAgain = 'y';
@@ -35,7 +35,10 @@ int main() {
 
     // Determine the winning hand, in order from most to least valuable
     // The most valuable hand wins, so the first successful one is the winner
-    if (containsFourOfaKind(hand)) {
+    if (containsFiveOfaKind(hand)) {
+        cout << "Hey you can't have 5 of the same card! Try again!" << endl;
+    }
+    else if (containsFourOfaKind(hand)) {
         cout << "Wow, four of a kind!" << endl;
     }
     else if (containsFullHouse(hand)) {
@@ -85,7 +88,7 @@ void countHand(int draw[], int hand[]) { // Aggregates the count of each card
     };
 }
 
-bool containsPair(int hand[]) {
+bool containsPair(int hand[]) { // Checks for a card with count of at least 2
     bool pair = false;
     for (int i = 0; i < 8; i++) {
         if (hand[i] >= 2) {
@@ -96,10 +99,9 @@ bool containsPair(int hand[]) {
     return pair;
 }
 
-bool containsTwoPair(int hand[]) {
+bool containsTwoPair(int hand[]) { // Checks for two separate cards with count of at least 2
     bool pair = false;
     bool twoPair = false;
-    // {1, 0, 2, 1, 0, 1, 0, 0}
     for (int i = 0; i < 8; i++) {
         if (pair == true) {
             if (hand[i] >= 2) {
@@ -116,7 +118,7 @@ bool containsTwoPair(int hand[]) {
      return twoPair;
 }
 
-bool containsThreeOfaKind(int hand[]) {
+bool containsThreeOfaKind(int hand[]) { // Checks for a card with count of at least 3
     bool triple = false;
     for (int i = 0; i < 8; i++) {
         if (hand[i] >= 3) {
@@ -127,14 +129,19 @@ bool containsThreeOfaKind(int hand[]) {
     return triple;
 }
 
-bool containsStraight(int hand[]) {
-
+bool containsStraight(int hand[]) { // Checks for a continuous sequence of length 5 all with count 1
     bool straight = false;
     int straight_sum = 0;
-    for (int i = 0; i < 5; i++) {
-        if (hand[i] > 1) {
+    
+    // Straights are only possible starting from card values 2, 3, 4, 5.
+    // This means we only need to check elements 0 - 3 in our array 'hand'
+
+    for (int i = 0; i < 4; i++) { 
+        if (hand[i] > 1) { // if any instance of count > 1, straight is not possible
             break;
         }
+        // If a count of 1 is found, the next 4 elements all must equal 1.
+        // Will keep track with a counter, and if this sum equals 5 while all equalling count of 1, we know it's a straight 
         else if (hand[i] == 1){
             int straight_sum = 1;
             for (int j = 1; j < 5; j++) {
@@ -154,7 +161,7 @@ bool containsStraight(int hand[]) {
     return straight;
 }
 
-bool containsFullHouse(int hand[]) {
+bool containsFullHouse(int hand[]) { // Checks for a card with count 3 and a separate card with count 2
     bool two = false;
     bool three = false;
     bool fullHouse = false;
@@ -172,15 +179,26 @@ bool containsFullHouse(int hand[]) {
     return fullHouse;
 }
 
-bool containsFourOfaKind(int hand[]) {
+bool containsFourOfaKind(int hand[]) { // Checks for a card with count of 4
     bool four = false;
     for (int i = 0; i < 8; i++) {
-        if (hand[i] >= 4) {
+        if (hand[i] == 4) {
             four = true;
             break;
         }
     }
     return four;
+}
+
+bool containsFiveOfaKind(int hand[]) { // Checks for a card with count of 5 (cheaters)
+    bool five = false;
+    for (int i = 0; i < 8; i++) {
+        if (hand[i] == 5) {
+            five = true;
+            break;
+        }
+    }
+    return five;
 }
 
 /* Sample output:
