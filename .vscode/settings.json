@@ -4,5 +4,7 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "numeric": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "cmake.configureOnOpen": false
 }
