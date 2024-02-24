@@ -1,5 +1,6 @@
 // Week 5 Canvas Post
 // Question 2 - Name Detection
+// Takes a file containing names, prompts user to input a name. Program determines determine if name is present in the file.
 // Riley Madden, 110b
 
 #include <iostream>
@@ -9,33 +10,38 @@
 using namespace std;
 
 const int MAX_NAME_COUNT = 20;
-
-
+void sortArray(string array[], int length);
+bool nameSearch(const string array[], int length, string value);
 
 int main(){
     ifstream inputFile;
     string name_list[MAX_NAME_COUNT]; // array to hold names
-    string user_name; // user's name
-    bool name_found = false;
+    string user_name; // name which user inputs
+    bool name_found;
     bool go_again = true;
     char again = 'y';
 
-    // open file and add all names to array
+    // open file and enter all names into an array
     inputFile.open("names.txt");
+    if (!inputFile.is_open()) { // error handling if file cannot be read
+    cout << "Error opening file!" << endl;
+    return 1;
+}
     for (int i = 0; i < MAX_NAME_COUNT; i++) {
         inputFile >> name_list[i];
     }
+    inputFile.close();
+
+    // sort array alphabetically
+    sortArray(name_list, MAX_NAME_COUNT);
 
     do {
         // capture name from user
         cout << "Please enter the name to check: ";
         cin >> user_name;
 
-        for (int i = 0; i < MAX_NAME_COUNT; i++) {
-            if (user_name == name_list[i]) {
-                name_found = true;
-            }
-        }
+        // determine if name is on list and inform user
+        name_found = nameSearch(name_list, MAX_NAME_COUNT, user_name);
 
         if (name_found) {
             cout << "Name is on list." << endl;
@@ -44,6 +50,7 @@ int main(){
             cout << "Name is not on list." << endl;
         }
 
+        // prompt user to repeat search
         cout << "Would you like to enter another name (y/n)?: ";
         cin >> again;
         if (again == 'n') {
@@ -52,28 +59,61 @@ int main(){
         else {
             name_found = false;
         }
-     } while (go_again == true);
+    } while (go_again == true);
+    
+    cout << "Thank you for searching." << endl;
     return 0;
 }
 
+void sortArray (string array[], int length) { // bubble sort the name array
+    bool swapped; // set swapped true if any swap occurs
+    do {
+        swapped = false;
+        for (int i = 0; i < (length - 1); i++) {
+            if (array[i] > array[i + 1]) {
+                swap(array[i], array[i + 1]);
+                swapped = true;
+            }
+        }
+    } while(swapped);
+}
 
+bool nameSearch(const string array[], int length, string value) { // search for name in array using binary search
+    int first = 0, // first array element
+        last = length - 1, // last array element
+        middle, // midpoint of search
+        position = -1; // position of search value
+    bool found = false;
 
+    while (found == false && first <= last) {
+        middle = (first + last) / 2; // calculate midpoint
+        if (array[middle] == value) { // check if midpoint = value, end search if true
+            found = true;
+            position = middle;
+            break;
+        }
+        else if (array[middle] > value) { // if value is in lower half
+        last = middle - 1;
+        }
+        else { // if value is in upper half
+            first = middle + 1;
+        }
 
-
+    }
+    return found;
+}
 
 /*
-The SFPD fraud unit has another assignment for you.  They have given you a list of 20 known credit card fraudsters at large, and want you to write a program that can detect if one of them is attempting to purchase something at the local Target store.  Unfortunately, the SFPD has not sorted the list for you, so your program must sort the list first.
+Sample output:
 
-To get the list into your hills directory, you can use the wget command from the hills prompt:
-
-wget https://fog.ccsf.edu/~mluttrel/cs110b/names.txt
-After running this command from the hills prompt, the file names.txt will be in your hills directory, and your C++ program can use the file input code discussed in this module to read it into an array.  If you are using another development environment, like repl.it, Xcode, etc. you will need to research how to add text files to your project and use them.
-
-Your program should:
-
-read in the 20 names from the file into an array of 20 string objects
-sort the array using either bubble sort or selection sort
-ask the user for the last name of a customer who is attempting to use a credit card. 
-search your array to see if this name is on the fraudster list.  At first, you can use a linear search like in Question 1.  If you have time, you can use a binary search because the list is sorted!
-
+Please enter the name to check: Riley
+Name is not on list.
+Would you like to enter another name (y/n)?: y
+Please enter the name to check: Jones
+Name is on list.
+Would you like to enter another name (y/n)?: y
+Please enter the name to check: Lee
+Name is on list.
+Would you like to enter another name (y/n)?: n
+Thank you for searching.
 */
