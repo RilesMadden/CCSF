@@ -17,6 +17,7 @@ struct SalesRecord {
 };
 
 float getProfit(SalesRecord record);
+void printReport(SalesRecord* records, int size);
 
 
 int main() {
@@ -27,8 +28,9 @@ int main() {
     cout << "How many types of burritos will you be entering?: ";
     cin >> numTypes;
 
-    SalesRecord burritos[numTypes];
-
+    SalesRecord* burritos = new SalesRecord[numTypes]; 
+ 
+    // Prompt user to enter name, number sold, wholesale, and retail cost of each
     for (int i = 0; i < numTypes; i++) {
         cout << "Please enter the name of burrito#" << (i+1) << ": ";
         cin >> burritos[i].burritoType;
@@ -40,25 +42,54 @@ int main() {
         cin >> burritos[i].pricing.retail;
     }
 
+    printReport(burritos, numTypes);
 
+    delete[] burritos;
+    cout << "Have a nice day!" << endl;
     return 0;
 }
-/*
-The local taqueria wants you to write a program which tracks the number of burritos they sell each day and help them analyze their business.
 
-Your program should ask the user for the number of different burrito types sold, then get the names of the types and the number of burritos sold of each type of that day.  Print out a daily report listing sales for each burrito type and total number of all burritos sold.
+float getProfit(SalesRecord record) {
+    float unitProfit = record.pricing.retail - record.pricing.wholesale;
+    float totalProfit = unitProfit * record.numSold;
+    return totalProfit;
+}
 
-So far, this sounds very similar to a previous exercise!  This difference this time is that you must use a struct called SalesRecord which has two fields -- a string containing the name of the burrito, and an int containing the number of burritos sold of this type.  You must have one dynamically allocated array of SalesRecord structs.
+void printReport(SalesRecord* records, int size) {
+    int totalBurritos = 0;
+    float totalProfit = 0;
+    for (int i = 0; i < size; i++) {
+        float profit = getProfit(records[i]);
+        cout << records[i].numSold << " " << records[i].burritoType << " burritos were sold today for a profit of $" << profit << endl;
+        totalBurritos += records[i].numSold;
+        totalProfit += profit;
+    }
+    cout << "A total of " << totalBurritos << " were sold today, for an overall profit of $" << totalProfit << endl;
+}
 
-Add on to your taqueria program from Question 2 above.  Just like in the videos and pdfs, create a new struct named Cost which contains two doubles: wholesale and retail.  Add one of these to the your SalesRecord struct, so it now has three fields — the name, the number sold, and the Cost struct.  Modify your input loop from Question 1 to input both wholesale and retail costs for each burrito type.
-
-Write a function which takes a SalesRecord as a parameter (by value), and returns the total profit from selling all the burritos of this type (unitProfit = retail - wholesale; totalProfit = unitProfit * numSold).
-
-float getProfit(SalesRecord record);
-
-Write another function which steps through your array of SalesRecords and prints out the total profit for all burritos sold.   You can do this by passing your function a pointer to the first element of your array and the number of elements in the array.  The function can have a loop which will call getProfit() for each SalesRecord.
-
-void printReport(SalesRecord* records, int size);
-
-Demonstrate that your function works by calling printReport() from main().
+/* Sample output:
+Welcome to the daily Taqueria profit report.
+How many types of burritos will you be entering?: 4
+Please enter the name of burrito#1: Steak
+Please enter the number of Steak burritos sold: 20
+Please enter the wholesale cost of the Steak burrito: 3
+Please enter the retail cost of the Steak burrito: 6
+Please enter the name of burrito#2: Chicken
+Please enter the number of Chicken burritos sold: 15
+Please enter the wholesale cost of the Chicken burrito: 2
+Please enter the retail cost of the Chicken burrito: 5
+Please enter the name of burrito#3: Carnitas
+Please enter the number of Carnitas burritos sold: 30
+Please enter the wholesale cost of the Carnitas burrito: 4
+Please enter the retail cost of the Carnitas burrito: 7
+Please enter the name of burrito#4: Vegetarian
+Please enter the number of Vegetarian burritos sold: 10
+Please enter the wholesale cost of the Vegetarian burrito: 1.5
+Please enter the retail cost of the Vegetarian burrito: 3
+20 Steak burritos were sold today for a profit of $60
+15 Chicken burritos were sold today for a profit of $45
+30 Carnitas burritos were sold today for a profit of $90
+10 Vegetarian burritos were sold today for a profit of $15
+A total of 75 were sold today, for an overall profit of $210
+Have a nice day!
 */
