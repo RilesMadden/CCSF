@@ -76,7 +76,7 @@ void reverse(char *s) { // 2. Reverses any string that is passed in.
     }
 }
 
-int replace(char *s, char target, char replacementChar) {
+int replace(char *s, char target, char replacementChar) { // 3. This function finds all instances of the char ‘target’ in the string and replaces them with ‘replacementChar’. It also returns the number of replacements
     int count = 0;
     for (int i = 0; i < strlen(s); i++) {
         if (s[i] == target) {
@@ -87,7 +87,7 @@ int replace(char *s, char target, char replacementChar) {
     return count;
 }
 
-int findSubstring(char *s, char substring[]) { // This function returns the index in string s where the substring can first be found.
+int findSubstring(char *s, char substring[]) { // 4. This function returns the index in string s where the substring can first be found. 
     int index = -1;
     int subLength = strlen(substring);
     int strLength = strlen(s);
@@ -107,7 +107,7 @@ int findSubstring(char *s, char substring[]) { // This function returns the inde
     return index;
 }
 
-bool isPalindrome(char *s) {
+bool isPalindrome(char *s) { // 5. This function returns true if the argument string is a palindrome.
     int length = strlen(s);
     bool palindrome = true;
     for (int i = 0; i < length/2; i++) {
@@ -118,7 +118,7 @@ bool isPalindrome(char *s) {
     return palindrome;
 }
 
-void reverseWords(char *s) {
+void reverseWords(char *s) { // 6. This function should reverse the words in a string.
     int length = strlen(s);
     int indexCounter = 0;
     int lastSpace;
