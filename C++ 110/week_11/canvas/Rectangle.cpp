@@ -1,4 +1,6 @@
-//Rectangle class file
+// Rectangle class file
+// Rectangle.cpp
+
 #include <iostream>
 #include <cstring>
 #include "Rectangle.h"
