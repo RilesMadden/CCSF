@@ -1,0 +1,30 @@
+1. The two argument constructor of the Shape class contains this code:
+
+    this->x = x;
+    this->y = y;
+
+Why is it necessary to put  “this->” in front of x and y?
+
+"This" is a pointer which refers to the current object. If there are local variables with the same name as the member variables, "this" helps clarify which object is being referenced at this moment.
+
+2. In the containsPoint member function of Circle, why are this->x and this->y in scope, even though they are not defined as member variables in Circle.h?
+
+The derived class also inherits the members of the base class. Since Circle inherits from Shape, it inherits the x and y members from the Shape class. So, they refer to the x and y members of the Shape class.
+
+3. What is the purpose of the keyword “virtual” in front of Shape::containsPoint and Shape::getArea?  What is the purpose of the “ = 0”?
+
+The virtual keyword grants any derived class the ability to override the defined functions. The "= 0" indicates that the function must be overridden by any derived class.
+
+4.  In Circle.cpp the three argument Circle constructor is defined like this:
+{
+    Circle:: Circle(int x, int y, int radius) : Shape(x, y)
+    this->radius = radius;
+}
+What is the purpose of the “: Shape(x, y)” (shown in bold in the code above). What happens if you remove it?
+
+
+The Shape(x, y) is used to reference the inherited class Shape with the arguments x and y. As Circle inherits from Shape, and the Shape constructor initializes the x and y member variables. If it's removed, the default constructor will be used, which may be unintended.
+
+5. List an example of polymorphism that you can find in the code base. In other words, list a statement where the datatype of a reference or pointer is not an exact match with the datatype of the object that it refers to.  
+
+The containsPoint() method in the Circle class is a polymorphism. The containsPoint() method is declared as a virtual function in the Shape base class, and is subsequently overridden in the Circle class.
