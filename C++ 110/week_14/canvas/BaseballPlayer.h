@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "Player.h"
+#include <iomanip>
 
 class BaseballPlayer : public Player {
     private:
@@ -21,7 +22,7 @@ class BaseballPlayer : public Player {
             cout << " Height: " << height << "m" << endl;
             cout << "At Bats: " << atBats;
             cout << " Hits: " << hits;
-            cout << " Batting Average: " << (double) hits / atBats << endl;
+            cout << " Batting Average: " << fixed << setprecision(3) << (double) hits / atBats << endl;
         }
 };
 

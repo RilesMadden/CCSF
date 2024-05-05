@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "Player.h"
+#include <iomanip>
 using namespace std;
 
 class BasketballPlayer : public Player {
@@ -22,7 +23,7 @@ class BasketballPlayer : public Player {
             cout << " Height: " << height << "m" << endl;
             cout << "FG: " << fieldgoals;
             cout << " Attempts: " << attempts;
-            cout << " Pct: " << (double) fieldgoals / attempts << endl;
+            cout << " Pct: " << fixed << setprecision(3) << (double) fieldgoals / attempts << endl;
         }
 };
 
