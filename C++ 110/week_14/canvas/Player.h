@@ -1,3 +1,6 @@
+// Week 14 - Canvas Post
+// Question 2 - Basketball & Baseball Classes with Inheritence
+// Riley Madden, 110b Spring 2024
 // Player.h
 #ifndef PLAYER_H
 #define PLAYER_H

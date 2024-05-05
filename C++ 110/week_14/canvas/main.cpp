@@ -19,3 +19,13 @@ int main() {
 
     return 0;
 }
+
+/*
+Output:
+Magic Johnson
+Weight: 220 lbs Height: 2.06m
+FG: 6211 Attempts: 11951 Pct: 0.519705
+Barry Bonds
+Weight: 185 lbs Height: 1.85m
+At Bats: 9847 Hits: 2935 Batting Average: 0.29806
+*/
