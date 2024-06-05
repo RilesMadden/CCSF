@@ -1,0 +1,38 @@
+Riley Madden
+Task A:
+Write a Unix command that will display the message below using echo and the value of YOUR environment variable that holds YOUR HOME directory 
+
+[rmadden3@hills ~]$ echo My home directory is $HOME
+My home directory is /students/rmadden3
+
+Task B:
+Write a Unix command to display your login and the system date with both commands on one line (the output may be on separate lines) 
+
+[rmadden3@hills ~]$ whoami; date
+rmadden3
+Tue Jun  4 18:05:32 PDT 2024
+
+Task C:
+Write a Unix command that will redirect (>) the results of the server name into the file called temp1
+hostname -s > temp1
+
+Write a Unix command that will append the uptime of the server to the same file called temp1
+uptime >> temp1
+
+Task D:
+Write a Unix command that will display the contents of (concatenate) the file called temp1
+[rmadden3@hills ~]$ cat temp1
+hills
+ 18:08:17 up 4 days, 11:37,  5 users,  load average: 0.00, 0.04, 0.01
+
+Task E:
+Using a pipe, Write a Unix command that will paginate (using pr) the output of the who command to 20 lines per page in 2 columns with line numbering. 
+[rmadden3@hills ~]$ who | pr -l 20 -2 -n
+
+
+2024-06-04 18:11                                                  Page 1
+
+
+    1   rmadden3 pts/0        2024-     4   akauffm3 pts/5        2024-
+    2   plee     pts/1        2024-     5   alin39   pts/4        2024-
+    3   jvuong10 pts/2        2024-
