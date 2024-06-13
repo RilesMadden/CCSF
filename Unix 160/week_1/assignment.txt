@@ -1,0 +1,34 @@
+[rmadden3@hills bin]$ pwd
+/students/rmadden3/bin
+
+[rmadden3@hills bin]$ ls -li . datafiles
+.:
+total 4
+830241790 drwx------ 2 rmadden3 students   65 Jun 12 16:59 datafiles
+582584065 -rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.data
+
+datafiles:
+total 8
+839808849 -rw------- 1 rmadden3 students 2401 Jun 12 16:58 famous.backup
+582584065 -rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.hard
+839808850 lrwxrwxrwx 1 rmadden3 students   34 Jun 12 16:59 famous.soft -> /students/rmadden3/bin/famous.data
+
+[rmadden3@hills bin]$ ls -lL datafiles
+total 12
+-rw------- 1 rmadden3 students 2401 Jun 12 16:58 famous.backup
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.hard
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.soft
+
+[rmadden3@hills bin]$ ls -lL datafiles/*.*[fu]*
+-rw------- 1 rmadden3 students 2401 Jun 12 16:58 datafiles/famous.backup
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 datafiles/famous.soft
+
+[rmadden3@hills bin]$ ls -lL * ./data*/*.[a-z]*[tr]?
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 ./datafiles/famous.hard
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.data
+
+datafiles:
+total 12
+-rw------- 1 rmadden3 students 2401 Jun 12 16:58 famous.backup
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.hard
+-rw------- 2 rmadden3 students 2401 Jun 12 16:58 famous.soft
