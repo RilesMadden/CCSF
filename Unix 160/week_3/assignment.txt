@@ -1,3 +1,4 @@
+Riley Madden
 [rmadden3@hills ~]$ find /pub/cs/ -type d -name cs160a 2>/dev/null
 /pub/cs/cmetzler/bin/cs160a
 /pub/cs/cconner/cs160a
